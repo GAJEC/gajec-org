@@ -1,9 +1,15 @@
 import React from "react";
 import Icon from "../UI/Icon";
 
+// A link only counts if it's a real URL (not empty or "#")
+const isLink = (url) => Boolean(url) && url !== "#";
+
 const MemberCard = ({ member, index, offset, onSelect, photo }) => {
   const dist = Math.abs(offset);
   const isActive = offset === 0;
+
+  // Keep link clicks from also triggering the card's "select" click
+  const stop = (e) => e.stopPropagation();
 
   return (
     <article
@@ -26,13 +32,30 @@ const MemberCard = ({ member, index, offset, onSelect, photo }) => {
           <img src={photo} alt={member.name} className="member-card__photo" />
         )}
         <span className="member-card__initials">{member.initials}</span>
+
         <div className="member-card__social">
-          <a href={member.github} aria-label={`${member.name} on GitHub`}>
-            <Icon name="github" size={15} />
-          </a>
-          <a href={member.linkedin} aria-label={`${member.name} on LinkedIn`}>
-            <Icon name="linkedin" size={15} />
-          </a>
+          {isLink(member.github) && (
+            <a
+              href={member.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={stop}
+              aria-label={`${member.name} on GitHub`}
+            >
+              <Icon name="github" size={15} />
+            </a>
+          )}
+          {isLink(member.linkedin) && (
+            <a
+              href={member.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={stop}
+              aria-label={`${member.name} on LinkedIn`}
+            >
+              <Icon name="linkedin" size={15} />
+            </a>
+          )}
         </div>
       </div>
 
@@ -47,9 +70,21 @@ const MemberCard = ({ member, index, offset, onSelect, photo }) => {
             </span>
           ))}
         </div>
-        <a href={member.portfolio} className="member-card__link">
-          View Portfolio <Icon name="arrow" size={15} />
-        </a>
+        {isLink(member.portfolio) ? (
+          <a
+            href={member.portfolio}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={stop}
+            className="member-card__link"
+          >
+            View Portfolio <Icon name="arrow" size={15} />
+          </a>
+        ) : (
+          <span className="member-card__link is-disabled">
+            Portfolio coming soon
+          </span>
+        )}
       </div>
     </article>
   );

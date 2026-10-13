@@ -144,6 +144,19 @@
   font-weight: 700;
 }
 
+.member-card__photo,
+.member-card__initials,
+.member-card__index {
+  pointer-events: none;
+}
+.member-card__social {
+  z-index: 2;
+}
+.member-card__link.is-disabled {
+  color: var(--text-faint);
+  cursor: default;
+}
+
 .carousel__controls {
   display: flex;
   align-items: center;
