@@ -1,0 +1,20 @@
+.theme-toggle,
+.scroll-top {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--border-strong);
+  border-radius: 10px;
+  color: var(--text);
+  background: rgba(127, 140, 170, 0.05);
+  transition:
+    border-color 0.25s,
+    background 0.25s,
+    transform 0.25s var(--ease);
+}
+.theme-toggle:hover,
+.scroll-top:hover {
+  border-color: var(--primary-soft);
+  transform: translateY(-2px);
+}

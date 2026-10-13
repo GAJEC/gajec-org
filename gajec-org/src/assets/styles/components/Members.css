@@ -1,0 +1,199 @@
+.members {
+  --card-w: 350px;
+  --spread: 285px;
+  overflow: hidden;
+}
+.carousel {
+  position: relative;
+  height: 520px;
+}
+.carousel__track {
+  position: relative;
+  height: 100%;
+}
+
+.member-card {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: var(--card-w);
+  margin-left: calc(var(--card-w) / -2);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transform: translateX(calc(var(--offset) * var(--spread))) scale(var(--scale));
+  transition:
+    transform 0.65s var(--ease),
+    opacity 0.5s,
+    border-color 0.3s,
+    box-shadow 0.4s;
+  cursor: pointer;
+}
+.member-card.is-active {
+  cursor: default;
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow);
+}
+
+.member-card__art {
+  position: relative;
+  height: 230px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      ellipse 60% 70% at 50% 85%,
+      rgba(43, 109, 255, 0.3),
+      transparent 70%
+    ),
+    linear-gradient(var(--grid-line) 1px, transparent 1px) 0 0 / 28px 28px,
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px) 0 0 / 28px
+      28px,
+    var(--surface-2);
+  border-bottom: 1px solid var(--border);
+}
+.member-card__photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.4;
+  mix-blend-mode: luminosity;
+}
+.member-card__index {
+  position: absolute;
+  top: 14px;
+  left: 16px;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: var(--text-faint);
+}
+.member-card__initials {
+  position: relative;
+  font-size: 5.6rem;
+  font-weight: 700;
+  letter-spacing: -0.07em;
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(43, 109, 255, 0.55);
+}
+.member-card__social {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  display: flex;
+  gap: 8px;
+}
+.member-card__social a {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  color: var(--text);
+  transition:
+    border-color 0.2s,
+    transform 0.2s;
+}
+.member-card__social a:hover {
+  border-color: var(--primary-soft);
+  transform: translateY(-2px);
+}
+
+.member-card__body {
+  padding: 1.5rem 1.6rem 1.4rem;
+}
+.member-card__role {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 0.7rem;
+}
+.member-card h3 {
+  font-size: 1.35rem;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  margin-bottom: 0.7rem;
+}
+.member-card__bio {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+  min-height: 3.4em;
+  margin-bottom: 1.1rem;
+}
+.member-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  padding-bottom: 1.3rem;
+  margin-bottom: 1.1rem;
+  border-bottom: 1px solid var(--border);
+}
+.member-card__link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.carousel__controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.4rem;
+  margin-top: 0.5rem;
+}
+.carousel__controls > button {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--border-strong);
+  transition:
+    border-color 0.2s,
+    background 0.2s;
+}
+.carousel__controls > button:hover {
+  border-color: var(--primary-soft);
+  background: rgba(43, 109, 255, 0.1);
+}
+.carousel__dots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.carousel__dots button {
+  width: 5px;
+  height: 5px;
+  border-radius: 99px;
+  background: var(--text-faint);
+  transition:
+    width 0.4s var(--ease),
+    background 0.3s;
+}
+.carousel__dots button.is-active {
+  width: 26px;
+  background: var(--primary);
+}
+
+@media (max-width: 760px) {
+  .members {
+    --card-w: 290px;
+    --spread: 200px;
+  }
+  .carousel {
+    height: 500px;
+  }
+  .member-card__initials {
+    font-size: 4.6rem;
+  }
+}

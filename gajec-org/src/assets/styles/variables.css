@@ -1,0 +1,52 @@
+:root {
+  --font-sans: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono:
+    "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  --container: 1060px;
+  --radius-sm: 8px;
+  --radius: 12px;
+  --radius-lg: 18px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --primary: #2b6dff;
+  --primary-soft: #3d8bff;
+  --cyan: #22d3ee;
+  --green: #22c55e;
+  --grad: linear-gradient(90deg, #2b6dff 0%, #38bdf8 100%);
+
+  /* dark (default) */
+  --bg: #05070d;
+  --surface: #0c1119;
+  --surface-2: #101725;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.16);
+  --text: #f6f8fc;
+  --text-muted: rgba(210, 220, 238, 0.68);
+  --text-faint: rgba(210, 220, 238, 0.38);
+  --nav-bg: rgba(10, 14, 22, 0.72);
+  --grid-line: rgba(255, 255, 255, 0.04);
+  --particle: 90, 150, 255;
+  --glow: rgba(43, 109, 255, 0.24);
+  --btn-light-bg: #ffffff;
+  --btn-light-text: #0a0e16;
+  --shadow: 0 30px 80px -30px rgba(0, 0, 0, 0.8);
+}
+
+:root[data-theme="light"] {
+  --bg: #f5f7fb;
+  --surface: #ffffff;
+  --surface-2: #eef2f9;
+  --border: rgba(10, 20, 40, 0.1);
+  --border-strong: rgba(10, 20, 40, 0.2);
+  --text: #0a1020;
+  --text-muted: rgba(10, 20, 40, 0.68);
+  --text-faint: rgba(10, 20, 40, 0.4);
+  --nav-bg: rgba(255, 255, 255, 0.8);
+  --grid-line: rgba(10, 20, 40, 0.05);
+  --particle: 43, 109, 255;
+  --glow: rgba(43, 109, 255, 0.16);
+  --btn-light-bg: #0a1020;
+  --btn-light-text: #ffffff;
+  --shadow: 0 30px 80px -40px rgba(20, 40, 90, 0.35);
+}

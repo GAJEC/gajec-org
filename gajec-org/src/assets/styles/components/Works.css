@@ -1,0 +1,196 @@
+.works__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition:
+    border-color 0.3s,
+    transform 0.4s var(--ease);
+}
+.project-card:hover {
+  border-color: var(--primary-soft);
+  transform: translateY(-4px);
+}
+.project-card--featured {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+}
+
+.project-card__preview {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 270px;
+  padding: 2rem;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      ellipse 70% 60% at 70% 0%,
+      color-mix(in srgb, var(--accent) 24%, transparent),
+      transparent 70%
+    ),
+    var(--bg);
+}
+.project-card--featured .project-card__preview {
+  min-height: 440px;
+}
+.project-card__preview::before {
+  content: "";
+  position: absolute;
+  width: 70%;
+  aspect-ratio: 1;
+  border: 1px solid var(--border);
+  transform: rotate(45deg);
+}
+.project-card__index {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: var(--text-faint);
+}
+
+.mock {
+  position: relative;
+  width: 82%;
+  aspect-ratio: 1.75;
+  display: grid;
+  grid-template-columns: 17% 1fr;
+  grid-template-rows: 14px 1fr;
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  border-radius: 10px;
+  overflow: hidden;
+  transform: perspective(900px) rotateX(6deg) rotateZ(-2.5deg);
+  box-shadow: var(--shadow);
+  transition: transform 0.6s var(--ease);
+}
+.project-card:hover .mock {
+  transform: perspective(900px) rotateX(2deg) rotateZ(-1deg) scale(1.03);
+}
+.mock__bar {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  padding-left: 8px;
+  border-bottom: 1px solid var(--border);
+}
+.mock__bar span {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--text-faint);
+}
+.mock__side {
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--accent) 28%, transparent),
+    transparent
+  );
+  border-right: 1px solid var(--border);
+}
+.mock__main {
+  padding: 8% 7%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.mock__main i {
+  display: block;
+  width: 28px;
+  height: 3px;
+  background: var(--accent);
+  margin-bottom: 8px;
+}
+.mock__main strong {
+  font-size: clamp(0.9rem, 1.9vw, 1.35rem);
+  letter-spacing: -0.05em;
+}
+.mock__tiles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6%;
+}
+.mock__tiles b {
+  height: 26px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+}
+
+.project-card__body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem 2rem 1.6rem;
+}
+.project-card:not(.project-card--featured) .project-card__body {
+  border-top: 0;
+  justify-content: flex-start;
+}
+.project-card__category {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 0.9rem;
+}
+.project-card h3 {
+  font-size: 1.7rem;
+  font-weight: 300;
+  letter-spacing: -0.05em;
+  margin-bottom: 0.8rem;
+}
+.project-card__desc {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+  max-width: 300px;
+  margin-bottom: 1.4rem;
+}
+.project-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  padding-bottom: 1.6rem;
+  margin-bottom: 1.2rem;
+  border-bottom: 1px solid var(--border);
+}
+.project-card__link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+.project-card__link span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.project-card:not(.project-card--featured) .project-card__body {
+  padding-top: 1.8rem;
+}
+
+@media (max-width: 860px) {
+  .works__grid {
+    grid-template-columns: 1fr;
+  }
+  .project-card--featured {
+    grid-template-columns: 1fr;
+  }
+  .project-card--featured .project-card__preview {
+    min-height: 300px;
+  }
+}

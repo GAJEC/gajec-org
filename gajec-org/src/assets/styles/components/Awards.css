@@ -1,0 +1,118 @@
+.awards__grid {
+  display: grid;
+  grid-template-columns: 1.45fr 1fr;
+  grid-template-rows: repeat(2, minmax(210px, 1fr));
+  gap: 1rem;
+}
+
+.award-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  padding: 2rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition:
+    border-color 0.3s,
+    transform 0.4s var(--ease);
+}
+.award-card:hover {
+  border-color: var(--primary-soft);
+  transform: translateY(-3px);
+}
+.award-card--featured {
+  grid-row: 1 / span 2;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  background:
+    radial-gradient(
+      ellipse 70% 55% at 25% 20%,
+      rgba(43, 109, 255, 0.22),
+      transparent 70%
+    ),
+    var(--surface);
+}
+.award-card__index {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--text-faint);
+}
+
+.award-card__icon {
+  position: relative;
+  flex-shrink: 0;
+}
+.award-card__medal {
+  display: grid;
+  place-items: center;
+  width: 90px;
+  height: 90px;
+  border: 1px solid var(--border-strong);
+  border-radius: 50%;
+  background: var(--bg);
+  color: var(--primary);
+}
+.award-card--featured .award-card__medal {
+  width: 144px;
+  height: 144px;
+}
+.award-card__year {
+  position: absolute;
+  left: 50%;
+  bottom: -9px;
+  transform: translateX(-50%);
+  padding: 0.12rem 0.55rem;
+  border-radius: 99px;
+  background: var(--primary);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+  font-weight: 600;
+}
+.award-card__placement {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 0.7rem;
+}
+.award-card h3 {
+  font-size: 1.45rem;
+  font-weight: 300;
+  letter-spacing: -0.05em;
+  line-height: 1.15;
+  margin-bottom: 0.7rem;
+}
+.award-card--featured h3 {
+  font-size: 2.3rem;
+}
+.award-card__event {
+  font-size: 0.72rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+.award-card__desc {
+  max-width: 420px;
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+@media (max-width: 860px) {
+  .awards__grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+  }
+  .award-card--featured {
+    grid-row: auto;
+    gap: 2.5rem;
+  }
+}

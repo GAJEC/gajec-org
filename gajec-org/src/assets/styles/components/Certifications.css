@@ -1,0 +1,113 @@
+.certs__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.8rem;
+}
+.certs__filters button {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border-strong);
+  border-radius: 99px;
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  color: var(--text-muted);
+  transition: all 0.25s;
+}
+.certs__filters button:hover {
+  border-color: var(--primary-soft);
+  color: var(--text);
+}
+.certs__filters button.is-active {
+  background: var(--text);
+  color: var(--bg);
+  border-color: var(--text);
+}
+
+.certs__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.9rem;
+}
+.certs__empty {
+  grid-column: 1 / -1;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.cert-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.4rem;
+  min-height: 240px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition:
+    border-color 0.3s,
+    transform 0.4s var(--ease);
+}
+.cert-card:hover {
+  border-color: var(--primary-soft);
+  transform: translateY(-3px);
+}
+.cert-card__top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: auto;
+}
+.cert-card__icon {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--border-strong);
+  border-radius: 10px;
+  background: var(--bg);
+  color: var(--primary);
+}
+.cert-card__cat {
+  padding: 0.18rem 0.6rem;
+  border: 1px solid var(--border-strong);
+  border-radius: 99px;
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+  color: var(--primary);
+}
+.cert-card__issuer {
+  margin-top: 1.4rem;
+  font-size: 0.62rem;
+  color: var(--text-muted);
+}
+.cert-card h3 {
+  margin: 0.4rem 0 0.5rem;
+  font-size: 1.12rem;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+}
+.cert-card__id {
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+  color: var(--text-faint);
+  padding-bottom: 1.1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+.cert-card__link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+@media (max-width: 900px) {
+  .certs__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .certs__grid {
+    grid-template-columns: 1fr;
+  }
+}
