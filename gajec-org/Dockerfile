@@ -22,8 +22,11 @@ FROM nginx:alpine
 # Copy the Vite production build
 COPY --from=build /app/dist /usr/share/nginx/html
 
-# Copy Nginx configuration
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY nginx.conf /etc/nginx/templates/default.conf.template
+COPY nginx-backend.conf /etc/nginx/snippets/backend.conf
+
+ENV BACKEND_URL=https://api.gajec.org \
+    NGINX_RESOLVER=127.0.0.11
 
 EXPOSE 80
 
