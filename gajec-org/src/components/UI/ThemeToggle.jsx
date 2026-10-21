@@ -15,7 +15,7 @@ const ThemeToggle = () => {
       aria-label={`Switch to ${next} theme`}
       title={`Switch to ${next} theme`}
     >
-      <Icon name={theme === "dark" ? "sun" : "moon"} size={16} />
+      <Icon key={theme} name={theme === "dark" ? "sun" : "moon"} size={16} />
     </button>
   );
 };

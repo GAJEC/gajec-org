@@ -18,11 +18,11 @@ const SOCIALS = [
   { icon: "instagram", label: "Instagram", href: "#" },
 ];
 
-const Footer = () => (
+const Footer = ({ home = true }) => (
   <footer className="footer">
     <div className="container">
       <div className="footer__top">
-        <a href="#top" className="footer__brand">
+        <a href={home ? "#top" : "/"} className="footer__brand">
           <img src={logo} alt="" width="34" height="34" />
           <div>
             <strong>GAJEC</strong>
@@ -32,10 +32,11 @@ const Footer = () => (
 
         <nav className="footer__links" aria-label="Footer">
           {LINKS.map((l) => (
-            <a key={l} href={`#${l.toLowerCase()}`}>
+            <a key={l} href={`${home ? "" : "/"}#${l.toLowerCase()}`}>
               {l}
             </a>
           ))}
+          <a href="/certificates">Find Certificate</a>
         </nav>
 
         <div className="footer__socials">

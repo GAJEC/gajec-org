@@ -9,7 +9,8 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': { target: backend, changeOrigin: true },
-      '/certificate': { target: backend, changeOrigin: true },
+      // Seserve nya pdf o png lang (Limited File Extension baka meron mag post ng XSS Payload)
+      '^/certificate/[^/]+\\.(pdf|png)$': { target: backend, changeOrigin: true },
     },
   },
 })

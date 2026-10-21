@@ -33,12 +33,21 @@
   animation: riseIn 0.8s var(--ease) both;
 }
 .hero__pill-dot {
+  position: relative;
   width: 6px;
   height: 6px;
   border-radius: 50%;
   background: var(--cyan);
-  color: var(--cyan);
   animation: pulseDot 2s ease-in-out infinite;
+}
+
+.hero__pill-dot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: var(--cyan);
+  animation: pulseRing 2s ease-out infinite;
 }
 
 .hero h1 {

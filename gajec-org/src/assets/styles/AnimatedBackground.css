@@ -4,14 +4,17 @@
   overflow: hidden;
   z-index: 0;
   pointer-events: none;
+  contain: strict;
 }
+
+.bg--paused * {
+  animation-play-state: paused !important;
+}
+
 .bg__grid {
   position: absolute;
-  inset: -64px;
-  background-image:
-    linear-gradient(var(--grid-line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
-  background-size: 64px 64px;
+  inset: 0;
+  overflow: hidden;
   -webkit-mask-image: radial-gradient(
     ellipse 80% 70% at 50% 40%,
     #000 30%,
@@ -22,12 +25,20 @@
     #000 30%,
     transparent 85%
   );
+}
+.bg__grid-lines {
+  position: absolute;
+  inset: -64px;
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 64px 64px;
   animation: gridMove 14s linear infinite;
+  will-change: transform;
 }
 .bg__orb {
   position: absolute;
   border-radius: 50%;
-  filter: blur(80px);
   will-change: transform;
 }
 .bg__orb--a {
@@ -37,7 +48,7 @@
   max-height: 720px;
   top: -12%;
   right: -6%;
-  background: radial-gradient(circle, var(--glow), transparent 68%);
+  background: radial-gradient(circle, var(--glow), transparent 70%);
   animation: orbA 18s ease-in-out infinite;
 }
 .bg__orb--b {
@@ -50,7 +61,7 @@
   background: radial-gradient(
     circle,
     rgba(34, 211, 238, 0.14),
-    transparent 68%
+    transparent 70%
   );
   animation: orbB 22s ease-in-out infinite;
 }
@@ -64,7 +75,7 @@
   background: radial-gradient(
     circle,
     rgba(139, 92, 246, 0.12),
-    transparent 68%
+    transparent 70%
   );
   animation: orbC 26s ease-in-out infinite;
 }
